@@ -6,8 +6,8 @@
 [![Postgres](https://img.shields.io/static/v1?message=postgresql&logo=postgresql&labelColor=5c5c5c&color=1182c3&logoColor=white&label=%20&style=plastic)](https://www.postgresql.org/)
 
 ## О проекте:
- **Проект YaMDb собирает отзывы (Review) пользователей на произведения (Titles).
- Произведения делятся на категории: «Книги», «Фильмы», «Музыка» (Список категорий (Category) может быть расширен администратором).**
+**Проект YaMDb собирает отзывы (```Review```) пользователей на произведения (```Titles```).    
+Произведения делятся на категории: «Книги», «Фильмы», «Музыка» (cписок категорий (```Category```) может быть расширен администратором).**
 
 ### Пользовательские роли:
  - **Аноним** — может просматривать описания произведений, читать отзывы и комментарии.
@@ -26,7 +26,7 @@
 #### 1. В dev-режиме:
 Клонировать репозиторий и перейти в него в командной строке:
 ``` sh
-git clone git@github.com:s-antoshkin/infra_sp2.git
+$ git clone git@github.com:s-antoshkin/infra_sp2.git
 ```
 Установить и активировать виртуальное окружение:
 ```
@@ -71,17 +71,17 @@ DB_PORT=5432 # порт для подключения к БД
 ```
 Запустить ```docker-compose``` командой:
 ```
-docker-compose up -d --build
+$ docker-compose up -d --build
 ```
 Собрать статику и выполнить миграции внутри контейнера, создать суперпользователя:
 ```shell
-docker-compose exec web python manage.py migrate --noinput
-docker-compose exec web python manage.py createsuperuser
-docker-compose exec web python manage.py collectstatic --no-input
+$ docker-compose exec web python manage.py migrate --noinput
+$ docker-compose exec web python manage.py createsuperuser
+$ docker-compose exec web python manage.py collectstatic --no-input
 ```
 #### При необходимости возможно импортировать тестовые данные:
 ``` sh
-docker-compose exec web python manage.py loaddata fixtures.json
+$ docker-compose exec web python manage.py loaddata fixtures.json
 ```
 - При импорте создается суперюзер ```admin``` с паролем ```admin```
 
